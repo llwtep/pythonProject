@@ -1,0 +1,18 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Новостная страница{%endblock%}
+
+{%block content%}
+<div class="features">
+    <h1>News page</h1>
+    {%for el in news%}
+        <div class="alert-warning">
+            <h4>{{el.title}}</h4>
+            <p>{{el.anons}}</p>
+            <a href="{%url 'news-detail' el.id %}" class="btn btn-warning">Read more</a>
+        </div>
+    {%endfor%}
+</div>
+
+
+{%endblock%}

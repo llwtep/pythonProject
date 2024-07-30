@@ -1,0 +1,20 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Create post{%endblock%}
+
+{%block content%}
+    <div class="features">
+    <div class="form-group">
+        <form method="post">
+           {%csrf_token%}
+            <fieldset class="form-group">
+                <legend class="border-bottom ">Are you want to delete {{object.title}}?</legend>
+            </fieldset>
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'post-detail' object.id%}" class="btn btn-secondary">Cancel</a>
+    </div>
+        </form>
+    </div>
+    </div>
+{%endblock%}

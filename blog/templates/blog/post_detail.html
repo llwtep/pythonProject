@@ -1,0 +1,31 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Blog page{%endblock%}
+
+{%block content%}
+  <div class="wrapper-blog">
+
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+            <img class="rounded-circle article-img" src="{{ posts.author.profile.image.url }}">
+              <a class="mr-2" href="{%url 'profile'%}">{{ posts.author }}</a>
+              <small class="text-muted">{{ posts.date_posted|date:"F d, Y" }}</small>
+
+              <div>
+                {% if posts.author == user %}
+                <a class="btn btn-info" href="{%url 'post-update' posts.id%}">Update</a>
+                <a class="btn btn-danger" href="{%url 'post-delete' posts.id%}">Delete</a>
+              {%endif%}
+              </div>
+
+            </div>
+            <h2 class="article-title">{{ posts.title }}</h2>
+            <p class="article-content">{{ posts.content }}</p>
+          </div>
+        </article>
+
+    </div>
+
+
+{%endblock%}
